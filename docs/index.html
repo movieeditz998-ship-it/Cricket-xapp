@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quick Cricket - Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Quick Cricket — Fast Prototype</h1>
+    <div id="hud">
+      <div>Overs: <span id="overs">0</span></div>
+      <div>Balls: <span id="balls">0</span></div>
+      <div>Score: <span id="score">0</span></div>
+    </div>
+
+    <div id="play-area">
+      <div id="bowler">🏏</div>
+      <div id="ball">⚪</div>
+      <div id="bat">🪵</div>
+    </div>
+
+    <div id="controls">
+      <button id="startBtn">Start Quick Match (2 overs)</button>
+      <button id="saveBtn">Save Result to League</button>
+      <button id="showLeagueBtn">Show League Standings</button>
+    </div>
+
+    <div id="message">Swipe (or drag) on the play area: up = loft, left/right = ground shots</div>
+
+    <pre id="log"></pre>
+
+    <div id="league" class="hidden">
+      <h2>League Standings (localStorage)</h2>
+      <table id="leagueTable"></table>
+    </div>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
