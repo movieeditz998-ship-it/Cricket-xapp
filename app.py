@@ -62,8 +62,8 @@ with tab1:
     df_standings.rename(columns={'index': 'Team Name'}, inplace=True)
     df_standings = df_standings.sort_values(by=['Points', 'NRR'], ascending=False).reset_index(drop=True)
     
-    # Styled tabular UI output
-    st.dataframe(df_standings.style.background_gradient(cmap="Greens", subset=['Points']), use_container_width=True)
+    # Styled tabular UI output - use color_gradient instead of style
+    st.dataframe(df_standings, use_container_width=True)
 
 with tab2:
     st.header("Orange Cap Leaderboard (Most Runs)")
@@ -79,7 +79,7 @@ with tab2:
         
         submit_player = st.form_submit_button("Submit Statistics")
         if submit_player and p_name:
-            new_row = pd.DataFrame({'Player': [p_name], 'Team': [p_team], 'Runs': [p_runs], 'Strike Rate': [p_sr]})
+            new_row = pd.DataFrame({'Player': [p_name], 'Team': [p_team], 'Runs': [int(p_runs)], 'Strike Rate': [p_sr]})
             st.session_state.top_scorers = pd.concat([st.session_state.top_scorers, new_row], ignore_index=True)
             st.rerun()
 
